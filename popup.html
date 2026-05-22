@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GPT Image Bulk Downloader</title>
+    <link rel="stylesheet" href="src/popup.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <img src="assets/icon-32.png" alt="" width="28" height="28">
+          <div>
+            <h1>GPT Image DL</h1>
+            <p id="pageStatus">ChatGPT 탭을 확인하는 중</p>
+          </div>
+        </div>
+        <button id="openOptions" class="icon-button" type="button" title="설정">⚙</button>
+      </header>
+
+      <section class="summary" aria-live="polite">
+        <div>
+          <strong id="imageCount">0</strong>
+          <span>발견</span>
+        </div>
+        <div>
+          <strong id="selectedCount">0</strong>
+          <span>선택</span>
+        </div>
+        <div>
+          <strong id="progressCount">0%</strong>
+          <span>진행</span>
+        </div>
+      </section>
+
+      <section class="actions">
+        <button id="scanPage" class="primary" type="button">현재 로드 스캔</button>
+        <button id="deepScan" type="button">전체 이미지 스캔</button>
+        <button id="selectAll" type="button">전체 선택</button>
+        <button id="selectNone" type="button">해제</button>
+      </section>
+
+      <section class="settings-strip">
+        <label>
+          <span>폴더</span>
+          <input id="folderName" type="text" autocomplete="off" spellcheck="false">
+        </label>
+        <label>
+          <span>간격(ms)</span>
+          <input id="delayMs" type="number" min="0" max="10000" step="100">
+        </label>
+        <label>
+          <span>재시도</span>
+          <input id="maxRetries" type="number" min="0" max="5" step="1">
+        </label>
+      </section>
+
+      <section id="jobPanel" class="job-panel" hidden>
+        <div class="progress-track">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+        <div class="job-row">
+          <span id="jobText">대기 중</span>
+          <button id="cancelJob" type="button">중지</button>
+        </div>
+      </section>
+
+      <section class="download-panel">
+        <button id="downloadSelected" class="download" type="button" disabled>
+          선택 이미지 다운로드
+        </button>
+        <button id="exportManifest" type="button" disabled>CSV 내보내기</button>
+        <button id="retryFailed" type="button" disabled>실패 재시도</button>
+      </section>
+
+      <section class="list-tools">
+        <label class="toggle">
+          <input id="embedMetadata" type="checkbox">
+          <span>프롬프트를 PNG 메타데이터에 삽입</span>
+        </label>
+        <label class="toggle">
+          <input id="manifestAfterDownload" type="checkbox">
+          <span>다운로드 후 CSV 매니페스트 저장</span>
+        </label>
+        <label class="search">
+          <span>검색</span>
+          <input id="filterText" type="search" autocomplete="off" spellcheck="false" placeholder="프롬프트 또는 파일 URL">
+        </label>
+      </section>
+
+      <section id="emptyState" class="empty-state">
+        ChatGPT 이미지 생성 대화를 연 뒤 스캔하세요.
+      </section>
+      <section id="imageList" class="image-list" aria-label="발견된 이미지"></section>
+    </main>
+    <script type="module" src="src/popup.js"></script>
+  </body>
+</html>

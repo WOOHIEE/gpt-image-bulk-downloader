@@ -1,0 +1,36 @@
+{
+  "name": "gpt-image-bulk-downloader",
+  "version": "0.2.0",
+  "description": "Chrome extension for bulk-downloading ChatGPT images with prompt metadata embedded into PNG files.",
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WOOHIEE/gpt-image-bulk-downloader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WOOHIEE/gpt-image-bulk-downloader/issues"
+  },
+  "homepage": "https://github.com/WOOHIEE/gpt-image-bulk-downloader#readme",
+  "keywords": [
+    "chatgpt",
+    "gpt-image",
+    "chrome-extension",
+    "bulk-download",
+    "png-metadata",
+    "prompt-management"
+  ],
+  "scripts": {
+    "audit": "node scripts/store-audit.mjs",
+    "build": "node scripts/build-dist.mjs",
+    "cancel-smoke": "node scripts/cancel-engine-smoke.mjs",
+    "icons": "node scripts/make-icons.mjs",
+    "live-smoke": "node scripts/live-commercial-smoke.mjs",
+    "package": "node scripts/package-release.mjs",
+    "verify": "node scripts/verify.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

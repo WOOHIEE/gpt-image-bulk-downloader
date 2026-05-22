@@ -1,0 +1,59 @@
+{
+  "manifest_version": 3,
+  "name": "GPT Image Bulk Downloader",
+  "short_name": "GPT Image DL",
+  "version": "0.2.0",
+  "description": "Bulk download ChatGPT images and embed the prompt into PNG metadata.",
+  "homepage_url": "https://github.com/WOOHIEE/gpt-image-bulk-downloader",
+  "minimum_chrome_version": "116",
+  "permissions": [
+    "activeTab",
+    "downloads",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://*.oaistatic.com/*",
+    "https://*.oaiusercontent.com/*",
+    "https://*.oausercontent.com/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "action": {
+    "default_title": "GPT Image Bulk Downloader",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icon-16.png",
+      "32": "assets/icon-32.png",
+      "48": "assets/icon-48.png",
+      "128": "assets/icon-128.png"
+    }
+  },
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*"
+      ],
+      "js": [
+        "src/content-gallery.js",
+        "src/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html",
+  "icons": {
+    "16": "assets/icon-16.png",
+    "32": "assets/icon-32.png",
+    "48": "assets/icon-48.png",
+    "128": "assets/icon-128.png"
+  }
+}

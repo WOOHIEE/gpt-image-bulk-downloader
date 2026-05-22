@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GPT Image DL 설정</title>
+    <link rel="stylesheet" href="src/options.css">
+  </head>
+  <body>
+    <main class="options-shell">
+      <header>
+        <img src="assets/icon-48.png" alt="" width="40" height="40">
+        <div>
+          <h1>GPT Image DL 설정</h1>
+          <p>대량 다운로드, 파일명, 메타데이터 저장 방식을 조정합니다.</p>
+        </div>
+      </header>
+
+      <form id="settingsForm">
+        <label>
+          <span>다운로드 폴더</span>
+          <input id="folderName" type="text" autocomplete="off" spellcheck="false">
+        </label>
+        <label>
+          <span>파일명 템플릿</span>
+          <input id="filenameTemplate" type="text" autocomplete="off" spellcheck="false">
+        </label>
+        <label>
+          <span>다운로드 간격(ms)</span>
+          <input id="delayMs" type="number" min="0" max="10000" step="100">
+        </label>
+        <label>
+          <span>실패 재시도 횟수</span>
+          <input id="maxRetries" type="number" min="0" max="5" step="1">
+        </label>
+        <label>
+          <span>다운로드 타임아웃(ms)</span>
+          <input id="downloadTimeoutMs" type="number" min="30000" max="600000" step="10000">
+        </label>
+        <label class="check">
+          <input id="embedMetadata" type="checkbox">
+          <span>이미지를 PNG로 저장하고 프롬프트 메타데이터를 삽입</span>
+        </label>
+        <label class="check">
+          <input id="manifestAfterDownload" type="checkbox">
+          <span>작업 완료 후 CSV 매니페스트도 저장</span>
+        </label>
+        <label class="check">
+          <input id="jsonSidecar" type="checkbox">
+          <span>각 이미지 옆에 JSON 사이드카 저장</span>
+        </label>
+        <label class="check">
+          <input id="allowOriginalFallback" type="checkbox">
+          <span>PNG 변환 실패 시 원본과 사이드카로 저장</span>
+        </label>
+        <div class="buttons">
+          <button class="primary" type="submit">저장</button>
+          <button id="resetSettings" type="button">기본값</button>
+        </div>
+      </form>
+
+      <section class="tokens">
+        <h2>파일명 토큰</h2>
+        <p>{date}, {time}, {index}, {prompt}, {conversation}, {imageId}</p>
+      </section>
+      <p id="savedState" class="saved-state" role="status"></p>
+    </main>
+    <script type="module" src="src/options.js"></script>
+  </body>
+</html>

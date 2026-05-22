@@ -1,0 +1,10 @@
+node_modules/
+dist/
+release/
+artifacts/
+.chrome-*/
+*.log
+*.tmp
+*.zip
+Thumbs.db
+.DS_Store
