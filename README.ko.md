@@ -4,6 +4,8 @@
 
 [English README](./README.md)
 
+현재 확장 프로그램 버전: `0.2.1`
+
 GPT Image Bulk Downloader는 ChatGPT 이미지 생성 작업을 많이 하는 사용자를 위한 로컬 전용 Manifest V3 Chrome 확장 프로그램입니다. 수백 장, 수천 장의 이미지를 스캔하고 순차적으로 다운로드하며, 각 이미지가 어떤 프롬프트로 생성되었는지 나중에도 추적할 수 있도록 PNG 메타데이터와 CSV 매니페스트를 함께 남깁니다.
 
 ## 왜 필요한가요?

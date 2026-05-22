@@ -4,6 +4,8 @@
 
 [한국어 README](./README.ko.md)
 
+Current extension version: `0.2.1`
+
 GPT Image Bulk Downloader is a local-only Manifest V3 Chrome extension for ChatGPT image-heavy workflows. It helps you scan hundreds or thousands of generated images, download them in a controlled queue, and keep each file traceable by embedding the prompt into PNG metadata.
 
 ## Why

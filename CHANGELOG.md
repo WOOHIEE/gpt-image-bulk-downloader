@@ -1,15 +1,23 @@
-# Changelog
+# 변경 내역
+
+## 0.2.1
+
+- 확장 프로그램 버전을 `0.2.1`로 올렸습니다.
+- Chrome 확장 프로그램 설명을 한국어로 정리했습니다.
+- GitHub ZIP을 바로 다운로드해서 설치할 때 선택해야 하는 폴더를 README에 명확히 적었습니다.
+- `manifest.json`이 없거나 읽을 수 없다는 Chrome 오류의 원인과 해결 방법을 한국어/영어 README에 추가했습니다.
 
 ## 0.2.0
 
-- Added abortable in-progress download cancellation.
-- Split ChatGPT Images scanning into current loaded images and full gallery pagination.
-- Moved prompt recovery into the background download pipeline so large selections start immediately.
-- Excluded ChatGPT default template cards from gallery results.
-- Added live smoke coverage for full gallery scans, prompt metadata resolution, actual download output, and cancellation.
-- Added open-source packaging files and release-readiness documentation.
+- 진행 중인 다운로드를 실제로 중단할 수 있도록 `AbortController` 기반 중단 기능을 추가했습니다.
+- ChatGPT Images 스캔을 **현재 로드 스캔**과 **전체 이미지 스캔**으로 분리했습니다.
+- 대량 선택 시 모든 프롬프트를 먼저 복원하느라 다운로드가 시작되지 않던 문제를 고쳤습니다.
+- 각 이미지를 저장하기 직전에 백그라운드에서 프롬프트를 복원하도록 변경했습니다.
+- ChatGPT 기본 템플릿 카드를 다운로드 목록에서 제외했습니다.
+- 실제 다운로드, 프롬프트 메타데이터, CSV/JSON 출력, 중단 동작을 검증하는 스모크 테스트를 추가했습니다.
+- 오픈소스 공개를 위한 README, 개인정보, 보안, 릴리스 체크리스트, 스토어 문서를 정리했습니다.
 
 ## 0.1.0
 
-- Initial Manifest V3 extension.
-- Bulk image scanning, sequential downloads, PNG prompt metadata, CSV manifest export, and optional JSON sidecars.
+- Manifest V3 Chrome 확장 프로그램 초기 버전을 추가했습니다.
+- 이미지 스캔, 순차 다운로드, PNG 프롬프트 메타데이터, CSV 매니페스트, 선택적 JSON 사이드카 저장 기능을 추가했습니다.

@@ -2,8 +2,8 @@
   "manifest_version": 3,
   "name": "GPT Image Bulk Downloader",
   "short_name": "GPT Image DL",
-  "version": "0.2.0",
-  "description": "Bulk download ChatGPT images and embed the prompt into PNG metadata.",
+  "version": "0.2.1",
+  "description": "ChatGPT 이미지를 대량 다운로드하고 프롬프트를 PNG 메타데이터에 저장합니다.",
   "homepage_url": "https://github.com/WOOHIEE/gpt-image-bulk-downloader",
   "minimum_chrome_version": "116",
   "permissions": [
