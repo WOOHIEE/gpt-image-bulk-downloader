@@ -25,26 +25,66 @@ ChatGPT image libraries can grow quickly. Saving images one by one is slow, and 
 - Stop an active job. The current fetch/download is aborted and the remaining queue is marked as skipped.
 - Local-only processing. No analytics, trackers, remote code, or developer-owned server.
 
-## Install From Source
+## Quick Install From GitHub ZIP
+
+No Node.js build is required for normal use. The repository root is already a valid unpacked Chrome extension.
+
+1. Open the GitHub repository page.
+2. Click **Code** -> **Download ZIP**.
+3. Extract the ZIP file.
+4. Open `chrome://extensions`.
+5. Enable **Developer mode**.
+6. Click **Load unpacked**.
+7. Select the folder that directly contains `manifest.json`.
+
+Important: Windows may create a nested folder when extracting GitHub ZIP files. If you extracted to the default destination, the correct folder may be:
+
+```text
+Downloads\gpt-image-bulk-downloader-main\gpt-image-bulk-downloader-main
+```
+
+not:
+
+```text
+Downloads\gpt-image-bulk-downloader-main
+```
+
+The folder you choose in Chrome must show these files directly inside it:
+
+```text
+manifest.json
+popup.html
+options.html
+src
+assets
+```
+
+## Troubleshooting: Manifest File Is Missing
+
+If Chrome shows **"Manifest file is missing or unreadable"**, you selected the wrong folder.
+
+Fix:
+
+1. Click **Cancel**.
+2. Open the extracted ZIP folder in File Explorer.
+3. Go one level deeper until you can see `manifest.json`.
+4. In Chrome, click **Load unpacked** again and select that exact folder.
+
+## Developer Build
 
 Requirements:
 
 - Chrome 116 or newer
 - Node.js 20 or newer
 
-Build the unpacked extension:
+Build the `dist` bundle:
 
 ```powershell
 npm run verify
 npm run build
 ```
 
-Install in Chrome:
-
-1. Open `chrome://extensions`.
-2. Enable **Developer mode**.
-3. Click **Load unpacked**.
-4. Select the `dist` folder from this repository.
+Then load the `dist` folder from `chrome://extensions`.
 
 ## Usage
 

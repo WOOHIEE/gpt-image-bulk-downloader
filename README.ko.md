@@ -36,26 +36,67 @@ ChatGPT에서 이미지를 많이 만들면 저장해야 할 이미지가 빠르
   - 남은 큐는 실패가 아니라 skipped로 정리
 - 외부 서버, 분석 도구, 트래커, 원격 코드 없음
 
-## 설치 방법
+## GitHub ZIP으로 바로 설치하기
+
+일반 사용자는 Node.js 빌드가 필요 없습니다. 이 저장소의 루트 폴더 자체가 Chrome에서 바로 로드 가능한 확장 프로그램입니다.
+
+1. GitHub 저장소 페이지를 엽니다.
+2. **Code** -> **Download ZIP**을 누릅니다.
+3. ZIP 파일을 압축 해제합니다.
+4. Chrome에서 `chrome://extensions`를 엽니다.
+5. 오른쪽 위 **개발자 모드**를 켭니다.
+6. **압축해제된 확장 프로그램 로드**를 누릅니다.
+7. `manifest.json` 파일이 바로 보이는 폴더를 선택합니다.
+
+중요: Windows 기본 압축 풀기를 쓰면 GitHub ZIP 폴더가 한 번 더 중첩될 수 있습니다. 이 경우 올바른 선택 위치는 보통 아래입니다.
+
+```text
+Downloads\gpt-image-bulk-downloader-main\gpt-image-bulk-downloader-main
+```
+
+아래 바깥 폴더를 선택하면 Chrome이 `manifest.json`을 찾지 못합니다.
+
+```text
+Downloads\gpt-image-bulk-downloader-main
+```
+
+Chrome에서 선택하는 폴더 안에 아래 파일/폴더가 바로 보여야 합니다.
+
+```text
+manifest.json
+popup.html
+options.html
+src
+assets
+```
+
+## 오류 해결: 매니페스트 파일이 없거나 읽을 수 없음
+
+Chrome에서 **"매니페스트 파일이 없거나 읽을 수 없습니다"** 라고 나오면 거의 항상 폴더를 한 단계 위로 잘못 선택한 것입니다.
+
+해결 방법:
+
+1. Chrome 오류 창에서 **취소**를 누릅니다.
+2. 압축 해제한 폴더를 파일 탐색기로 엽니다.
+3. `manifest.json`이 보일 때까지 한 단계 더 들어갑니다.
+4. Chrome에서 **압축해제된 확장 프로그램 로드**를 다시 누릅니다.
+5. `manifest.json`이 바로 들어있는 그 폴더를 선택합니다.
+
+## 개발자용 빌드
+
+개발하거나 배포용 ZIP을 만들 때만 Node.js가 필요합니다.
 
 필요 조건:
 
 - Chrome 116 이상
 - Node.js 20 이상
 
-프로젝트 폴더에서 빌드합니다.
-
 ```powershell
 npm run verify
 npm run build
 ```
 
-Chrome에 설치합니다.
-
-1. Chrome에서 `chrome://extensions`를 엽니다.
-2. 오른쪽 위 **개발자 모드**를 켭니다.
-3. **압축해제된 확장 프로그램 로드**를 누릅니다.
-4. 이 저장소의 `dist` 폴더를 선택합니다.
+빌드 후에는 `chrome://extensions`에서 `dist` 폴더를 로드하면 됩니다.
 
 ## 사용 방법
 
